@@ -1,0 +1,7 @@
+<h2>Register a New Application</h2>
+<%= form_for @registered_application do |f| %>
+Application Name <%= f.text_field :name %></br>
+Application URL <%= f.text_field :url %></br>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.submit "Register Application" %>
+<% end %>

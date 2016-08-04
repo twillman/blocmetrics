@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801151224) do
+ActiveRecord::Schema.define(version: 20160804150042) do
+
+  create_table "applications", force: :cascade do |t|
+    t.text     "name"
+    t.text     "url"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "applications", ["user_id"], name: "index_applications_on_user_id"
+
+  create_table "registered_applications", force: :cascade do |t|
+    t.text     "name"
+    t.text     "url"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "registered_applications", ["user_id"], name: "index_registered_applications_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
