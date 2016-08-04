@@ -1,4 +1,8 @@
 <h2><%= @registered_application.name %></h2>
-<h3><%= @registered_application.url %></h3>
+<h4><%= @registered_application.url %></h4>
+<h3>Events</h3>
+<% @events.each do |key, value| %>
+<%= key %>(<%= value.length %>)</br>
+<% end %>
 <h4><%= link_to "Deregister Application", @registered_application, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to deregister this application?'} %></h4>
 <%= link_to "Back to All Applications", registered_applications_path %>
