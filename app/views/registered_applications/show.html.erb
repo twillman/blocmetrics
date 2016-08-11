@@ -4,5 +4,11 @@
 <% @events.each do |key, value| %>
 <%= key %>(<%= value.length %>)</br>
 <% end %>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= pie_chart @registered_application.events.group(:name).count %>
+
+<%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+
+
 <h4><%= link_to "Deregister Application", @registered_application, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to deregister this application?'} %></h4>
 <%= link_to "Back to All Applications", registered_applications_path %>
